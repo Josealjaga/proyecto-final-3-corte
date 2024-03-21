@@ -1,17 +1,17 @@
-const express = require("express");
-const users = require("../services/users.service");
+import express from "express";
+import {getAllUsers, getById, createUsers, updateUsers, deleteUsers, authUsers} from"../services/users.service.js"
 const router = express.Router();
 
-router.get("/all", users.getAllUsers);
+router.get("/all", getAllUsers);
 
-router.get("/byid/:id", users.getById);
+router.get("/byid/:id", getById);
 
-router.post("/create", users.createUsers);
+router.post("/create", createUsers);
 
-router.put("/update", users.updateUsers);
+router.put("/update", updateUsers);
 
-router.delete("/delete", users.deleteUsers);
+router.delete("/delete", deleteUsers);
 
-router.post("/auth", users.authUsers);
+router.post("/auth", authUsers);
 
-module.exports = router;
+export  default router;

@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "proyecto integrado 3er corte de enyoi",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "dev": "nodemon/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,8 +24,14 @@
   },
   "homepage": "https://github.com/Josealjaga/proyecto-final-3-corte#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.9",
     "express": "^4.18.3",
+    "express-session": "^1.18.0",
+    "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "nodemon": "^3.1.0"
   }
