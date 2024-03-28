@@ -26,8 +26,14 @@ export const getById = (req, res) => {
 };
 
 export const createUsers = async (req, res) => {
-  const {email, password, fullname, rol } = req.body;
+  const { email, password, fullname, rol } = req.body;
   const passwordHash = await bcrypt.hash(password, 10);
+  const payload = {
+    email: email,
+    fullname: fullname,
+    role: rol
+  };
+
   const sql = `INSERT INTO users (email, password, fullname, rol) VALUES ('${email}', '${passwordHash}', '${fullname}', '${rol}')`;
   connection.query(sql, (error, rows) => {
     if (error) {
@@ -36,6 +42,9 @@ export const createUsers = async (req, res) => {
       res.json(rows);
     }
   });
+
+  const token = jwt.sign(payload, process.env.JWT_SECRET);
+  res.status(200).json(token);
 };
 
 export const updateUsers = (req, res) => {
@@ -61,41 +70,3 @@ export const deleteUsers = (req, res) => {
     }
   });
 };
-
-// export const authUsers  = (req, res) => {
-  
-//   const{ email, password } = req.body;
-//   const inPassword = password
-//   const sql = "SELECT * FROM users WHERE email = '${email}'";
-
-
-//  export const authUsers = async (req, res) => {
-//   const { email, password } = req.body;
-//    const credentials = {
-//      email: email,
-//    };
-//    const sql = `SELECT * FROM users WHERE email = '${email}'`;
-//    connection.query(sql, async (error, rows) => {
-//      if (error) {
-//        res.jason(error);
-//      } else {
-//        if (rows.length) {
-//          const { email, password } = rows[0];
-//          const passwordMatch = await bcrypt.compare(inPassword, password);
-//          const tokens = jwt.sign( credentials, 'ztechnology')
-//          if (passwordMatch) {
-//            res.json({
-//              name: rows[0].full_name,
-//              email: rows[0].email,
-//              token: tokens
-//            });
-//          } else {
-//            res.json("ERROR_PASSWORD");
-//          }
-//          res.json(rows);
-//        } else {
-//          res.json("USER_DOES_NOT_EXIST");
-//        }
-//      }
-//    });
-//  };

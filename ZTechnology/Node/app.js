@@ -1,17 +1,19 @@
 import express from "express"
-import routers from "./router/index.js";
+import routers from "./router/index.js"
+import dotenv from "dotenv"
 const app = express()
-const port = 3000;
-app.set("port", port);
+dotenv.config()
+const port = 3000
+app.set("port", port)
 
-app.use(express.json());
+app.use(express.json())
 
-routers(app);
+routers(app)
 
 app.listen(app.get("port"), (error) => {
   if (error) {
-    console.error(error);
+    console.error(error)
   } else {
-    console.log("Server is running on port...", port);
+    console.log("Server is running on port...", port)
   }
-});
+})

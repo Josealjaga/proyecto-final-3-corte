@@ -1,17 +1,22 @@
-import express from "express";
-import {getAllUsers, getById, createUsers, updateUsers, deleteUsers, authUsers} from"../services/users.service.js"
-const router = express.Router();
+import express from "express"
+import {
+  getAllUsers,
+  getById,
+  createUsers,
+  updateUsers,
+  deleteUsers
+} from "../services/users.service.js"
+import { validateAdmin } from "../../auth/middlewares/auth.middleware.js"
+const router = express.Router()
 
-router.get("/all", getAllUsers);
+router.get("/all", validateAdmin, getAllUsers)
 
-router.get("/byid/:id", getById);
+router.get("/byid/:id", validateAdmin, getById)
 
-router.post("/create", createUsers);
+router.post("/create", createUsers)
 
-router.put("/update", updateUsers);
+router.put("/update", validateAdmin, updateUsers)
 
-router.delete("/delete", deleteUsers);
+router.delete("/delete", validateAdmin, deleteUsers)
 
-router.post("/auth", authUsers);
-
-export  default router;
+export default router

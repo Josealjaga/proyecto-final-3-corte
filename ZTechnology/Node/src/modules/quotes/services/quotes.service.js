@@ -1,6 +1,5 @@
 import connection from "../../../../config/connection.js";
 
-
 export const getAllQuotes = (req, res) => {
   const sql = "SELECT * FROM quotes";
   connection.query(sql, (error, rows) => {
