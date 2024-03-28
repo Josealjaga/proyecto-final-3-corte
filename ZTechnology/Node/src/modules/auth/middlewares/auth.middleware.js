@@ -23,7 +23,7 @@ export const validateManager = (req, res, next) => {
     res.send(401).json({ error: "Token invalid" })
   }
   if (!payload) res.status(403).json({ error: "Token invalid" })
-  if (payload.role !== "Gestor")
-    res.status(403).json({ error: "You are not manager" })
+  if (payload.role !== "Gestor" || payload.role !== "Administrador")
+    res.status(403).json({ error: "Access denied" })
   next()
 }
