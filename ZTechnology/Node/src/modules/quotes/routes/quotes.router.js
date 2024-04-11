@@ -1,16 +1,21 @@
-import express from "express";
-import {getAllQuotes, getById, createQuotes, updateQuotes, deleteQuotes} from"../services/quotes.service.js"
-const router = express.Router();
+import express from "express"
+import {
+  getAllQuotes,
+  getById,
+  createQuotes,
+  updateQuotes,
+  deleteQuotes
+} from "../services/quotes.service.js"
+const router = express.Router()
 
-router.get("/all", getAllQuotes);
+router.get("/all", getAllQuotes)
 
-router.get("/byid/:id", getById);
+router.get("/byid/:id", getById)
 
-router.post("/create", createQuotes);
+router.post("/create", createQuotes)
 
-router.put("/update", updateQuotes);
+router.put("/update", updateQuotes)
 
-router.delete("/delete", deleteQuotes);
+router.delete("/delete/:id", deleteQuotes)
 
-
-export  default router;
+export default router

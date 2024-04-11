@@ -1,16 +1,21 @@
-import express from "express";
-import {getAllProducts, getById, createProducts, updateProducts, deleteProducts} from"../services/products.service.js"
-const router = express.Router();
+import express from "express"
+import {
+  getAllProducts,
+  getById,
+  createProducts,
+  updateProducts,
+  deleteProducts
+} from "../services/products.service.js"
+const router = express.Router()
 
-router.get("/all", getAllProducts);
+router.get("/all", getAllProducts)
 
-router.get("/byid/:id", getById);
+router.get("/byid/:id", getById)
 
-router.post("/create", createProducts);
+router.post("/create", createProducts)
 
-router.put("/update", updateProducts);
+router.put("/update", updateProducts)
 
-router.delete("/delete", deleteProducts);
+router.delete("/delete/:id", deleteProducts)
 
-
-export  default router;
+export default router
