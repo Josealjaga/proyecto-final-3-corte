@@ -11,7 +11,7 @@ router.post("/create", createClients);
 
 router.put("/update", updateClients);
 
-router.delete("/delete", validateAdmin, deleteClients);
+router.delete("/delete/:id", validateAdmin, deleteClients);
 
 
 export  default router;

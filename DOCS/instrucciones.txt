@@ -1,0 +1,6 @@
+Para ejecutar la aplicacion deben abrir el backend y en frontend, para abrir el backend deben entrar a la carpeta Node y ejecutar el comando npm run dev.
+Para ejecutar el front debe entrar a la carpeta vite-project y ejecutar el comando npm run dev.
+Al abrir la aplicacion deben inciar session con el usuario y contrasena de administrador.
+el usuario y contrasena son:
+user = jmj12@gmail.com
+pass = jmj1234

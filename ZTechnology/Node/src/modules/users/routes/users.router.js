@@ -6,17 +6,16 @@ import {
   updateUsers,
   deleteUsers
 } from "../services/users.service.js"
-import { validateAdmin } from "../../auth/middlewares/auth.middleware.js"
 const router = express.Router()
 
-router.get("/all", validateAdmin, getAllUsers)
+router.get("/all", getAllUsers)
 
-router.get("/byid/:id", validateAdmin, getById)
+router.get("/byid/:id", getById)
 
 router.post("/create", createUsers)
 
-router.put("/update", validateAdmin, updateUsers)
+router.put("/update", updateUsers)
 
-router.delete("/delete", validateAdmin, deleteUsers)
+router.delete("/delete/:id", deleteUsers)
 
 export default router

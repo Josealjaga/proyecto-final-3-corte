@@ -26,11 +26,10 @@ export const authUsers = async (req, res) => {
             token: tokens
           })
         } else {
-          res.json("ERROR_PASSWORD")
+          res.status(401).json("ERROR_PASSWORD")
         }
-        res.json(rows)
       } else {
-        res.json("USER_DOES_NOT_EXIST")
+        res.status(401).json("USER_DOES_NOT_EXIST")
       }
     }
   })
